@@ -1,0 +1,33 @@
+ [
+  {
+    "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "dev-demo",
+            "awslogs-region": "us-east-1",
+            "awslogs-create-group": "true",
+            "awslogs-stream-prefix": "firelens"
+        }       
+    },
+    "secrets": [
+      {
+        "name": "DATABASE_PASSWORD",
+        "valueFrom": "arn:aws:ssm:us-east-1:175198499665:parameter/dev/db"
+      }
+    ],
+    "cpu": 10,
+    "environment": [
+      {"name": "VARNAME", "value": "VARVALUE"}
+    ],
+    "essential": true,
+    "image": "nginx",
+    "memory": 128,
+    "name": "nginx",
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 80
+      }
+    ]
+  }
+ ]
