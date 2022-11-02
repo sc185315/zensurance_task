@@ -9,7 +9,7 @@ ENV       APP_HOME /hello-world
 WORKDIR   $APP_HOME
 
 # Copy in files:
-COPY      . $APP_HOME
+COPY      ./src $APP_HOME
 
 EXPOSE    80
 CMD       ["node", "index.js"]
